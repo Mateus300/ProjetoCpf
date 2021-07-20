@@ -28,7 +28,7 @@
 
     <?php if($flag == 1):?>
 
-        <?php require_once "cnpj.php";?>
+        <?php require_once "opcao.php";?>
 
     <?php endif?>
 <?= require_once "rodape.php";?>

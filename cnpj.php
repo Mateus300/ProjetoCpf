@@ -21,60 +21,105 @@
     
     ?>
 
-    <h1>Busca por CNPJ:</h1>
+    <h1 class="display-4 text-center">Busca por CNPJ:</h1><br>
+        
+    <div class="text-center">
         <form action="cnpj.php" method="get">
             <label for="">Digite o CNPJ:</label>
             <input type="text" name="cnpj" id="cnpj">
-            <input type="submit" name="submit" value="Enviar">
+            <input type="submit" class="btn btn-primary" name="submit" value="Enviar">
         </form>
+    </div>
 
-    <div class="form-group col-md-8 text-center">
+    <div class="row text-center">
+        <div class="col">
+            <label> CNPJ no formato 00.000.000/0000-00. </label>
+            <input type="text" class="form-control" id="cnpj" disabled value="<?= $cnpj ?>">
+        </div>
+            
+        <div class="col">
+            <label> MATRIZ/FILIAL. </label>
+            <input type="text" class="form-control" id="tipo" disabled value="<?= $tipo ?>">
+        </div>
+    </div>
 
-        <label> CNPJ no formato 00.000.000/0000-00. </label>
-        <input type="text" class="form-control" id="cnpj" disabled value="<?= $cnpj ?>">
+    <div class="row text-center">
+        <div class="col">
+            <label> Data de abertura no formato dd/mm/aaaa. </label>
+            <input type="text" class="form-control" id="abertura" disabled value="<?= $abertura ?>">
+        </div>
         
-        <label> MATRIZ/FILIAL. </label>
-        <input type="text" class="form-control" id="tipo" disabled value="<?= $tipo ?>">
-
-        <label> Data de abertura no formato dd/mm/aaaa. </label>
-        <input type="text" class="form-control" id="abertura" disabled value="<?= $abertura ?>">
+        <div class="col">
+            <label> Razão social. </label>
+            <input type="text" class="form-control" id="nome" disabled value="<?= $nome ?>">
+        </div>
+    </div>
         
-        <label> Razão social. </label>
-        <input type="text" class="form-control" id="nome" disabled value="<?= $nome ?>">
-        
-        <label> Nome fantasia. </label>
-        <input type="text" class="form-control" id="fantasia" disabled value="<?= $fantasia ?>">
+    <div class="row text-center">
+        <div class="col">
+            <label> Nome fantasia. </label>
+            <input type="text" class="form-control" id="fantasia" disabled value="<?= $fantasia ?>">
+        </div>
 
-        <label> UF. </label>
-        <input type="text" class="form-control" id="uf" disabled value="<?= $uf ?>">
+        <div class="col">
+            <label> UF. </label>
+            <input type="text" class="form-control" id="uf" disabled value="<?= $uf ?>">
+        </div>
+    </div>
 
-        <label> MUNICIPIO. </label>
-        <input type="text" class="form-control" id="municipio" disabled value="<?= $municipio ?>">
+    <div class="row text-center">
+        <div class="col">
+            <label> MUNICIPIO. </label>
+            <input type="text" class="form-control" id="municipio" disabled value="<?= $municipio ?>">
+        </div>
 
-        <label> Bairro. </label>
-        <input type="text" class="form-control" id="bairro" disabled value="<?= $bairro ?>">
+        <div class="col">
+            <label> Bairro. </label>
+            <input type="text" class="form-control" id="bairro" disabled value="<?= $bairro ?>">
+        </div>
+    </div>
 
-        <label> CEP. </label>
-        <input type="text" class="form-control" id="cep" disabled value="<?= $cep ?>">
+    <div class="row text-center">
+        <div class="col">
+            <label> CEP. </label>
+            <input type="text" class="form-control" id="cep" disabled value="<?= $cep ?>">
+        </div>
 
-        <label> COMPLEMENTO. </label>
-        <input type="text" class="form-control" id="complemento" disabled value="<?= $complemento ?>">
+        <div class="col">
+            <label> COMPLEMENTO. </label>
+            <input type="text" class="form-control" id="complemento" disabled value="<?= $complemento ?>">
+        </div>
+    </div>
 
-        <label> NÚMERO. </label>
-        <input type="text" class="form-control" id="numero" disabled value="<?= $numero ?>">
+    <div class="row text-center">
+        <div class="col">
+            <label> NÚMERO. </label>
+            <input type="text" class="form-control" id="numero" disabled value="<?= $numero ?>">
+        </div>
 
-        <label> LOGRADOURO. </label>
-        <input type="text" class="form-control" id="logradouro" disabled value="<?= $logradouro ?>">
+        <div class="col">
+            <label> LOGRADOURO. </label>
+            <input type="text" class="form-control" id="logradouro" disabled value="<?= $logradouro ?>">
+        </div>
+    </div>
 
-        <label> E-MAIL. </label>
-        <input type="text" class="form-control" id="email" disabled value="<?= $email ?>">
+    <div class="row text-center">
+        <div class="col">
+            <label> E-MAIL. </label>
+            <input type="text" class="form-control" id="email" disabled value="<?= $email ?>">
+        </div>
 
-        <label> TELEFONE. </label>
-        <input type="text" class="form-control" id="telefone" disabled value="<?= $telefone ?>">
+        <div class="col">
+            <label> TELEFONE. </label>
+            <input type="text" class="form-control" id="telefone" disabled value="<?= $telefone ?>">
+        </div>
+    </div>
 
-        <label> CAPITAL SOCIAL. </label>
-        <input type="text" class="form-control" id="capital_social" disabled value="<?='R$'.$capital_social ?>">
-
+    <div class="row text-center">
+        <div class="col">
+            <label> CAPITAL SOCIAL. </label>
+            <input type="text" class="form-control" id="capital_social" disabled value="<?='R$'.$capital_social ?>">
+        </div>
     </div>
 
 <?= require_once "rodape.php";?>

@@ -1,6 +1,6 @@
 <?= require_once "topo.php";?>
 
-    <h1>Login:</h1>
+    <h1 class="display-4 text-center">Login:</h1>
 
     <form action="index.php" method="post">
             <div class="input-group mb-3">
@@ -17,7 +17,9 @@
                 <br><input type="password" class="form-control" name="senha" id="senha" placeholder="Digite a senha...">
             </div>
 
-            <br><button type="submit" class="btn btn-primary">Logar</button>
+            <div class="button-group mb-3 text-center">
+                <button type="submit" class="btn btn-primary">Logar</button>
+            </div>
     </form>
 
 <?= require_once "rodape.php";?>
