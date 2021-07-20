@@ -22,7 +22,7 @@
     ?>
 
     <h1>Busca por CNPJ:</h1>
-        <form action="#" method="get">
+        <form action="cnpj.php" method="get">
             <label for="">Digite o CNPJ:</label>
             <input type="text" name="cnpj" id="cnpj">
             <input type="submit" name="submit" value="Enviar">
