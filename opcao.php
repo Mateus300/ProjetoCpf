@@ -4,17 +4,13 @@
 
    <div class="row">
         <div class="form-group col-md-6 text-center">
-            <form action="cnpj.php" method="post">
                 <label>Pesquisa de CNPJ:</label>
-                <input type="submit" class="btn btn-primary" name="submit" value="Ir">
-            </form>
+            <a href="cnpj.php">CNPJ</a>
         </div>
 
         <div class="form-group col-md-5 text-center">
-            <form action="cep.php" method="post">
                 <label>Pesquisa de CEP:</label>
-                <input type="submit" class="btn btn-primary" name="submit" value="Ir">
-            </form>
+                <a href="cep.php">CEP</a>
         </div>
    </div>
 
