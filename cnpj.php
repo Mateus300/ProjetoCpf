@@ -25,14 +25,12 @@
         curl_close($ch);
         }
 
-        if(isset($_POST['cadastrar'])){
+        if(isset($_POST['cad'])){
             CrudCnpj::insert($_POST);
         }
-        if(isset($_POST['alterar'])){
-            CrudCnpj::update();
-        }
-        if(isset($_POST['deletar'])){
-            CrudCnpj::delete();
+
+        if(isset($_POST['del'])){
+            CrudCnpj::delete($_POST['cnpj']);
         }
     ?>
 
@@ -140,9 +138,8 @@
     </div>
 
     <div>
-        <input type="submit" name="cadastrar" value="Cadastrar" class="btn btn-primary text-center">
-        <input type="submit" name="alterar" value="Alterar" class="btn btn-primary text-center">
-        <input type="submit" name="deletar" value="Deletar" class="btn btn-primary text-center">
+        <input type="submit" name="cad" value="Cadastrar" class="btn btn-primary text-center">
+        <input type="submit" name="del" value="Deletar" class="btn btn-primary text-center">
         <input type="submit" name="voltar" value="Voltar" class="btn btn-primary text-center">
     </div>
 

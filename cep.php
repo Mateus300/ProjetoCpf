@@ -1,8 +1,13 @@
-<?= require_once "topo.php";?>
+<?php   
+    if(isset($_POST['voltar'])){
+    require_once "opcao.php";
+    }else{
+
+        require_once "topo.php";
+        require_once "crud.php";
+?>
 
     <?php
-
-        $nome = $_POST["nome"];
     
         if(isset($_GET['submit'])){
 
@@ -20,18 +25,18 @@
                     
             curl_close($ch);
         }
+
+        if(isset($_POST['cadastrar'])){
+            CrudCep::insert($_POST);
+        }
+
+        if(isset($_POST['deletar'])){
+            CrudCep::delete($_POST['cep']);
+        }
     
     ?>
 
     <h1 class="display-4 text-center">Busca por CEP:</h1><br>
-
-    <div class="text-center">
-        <form action="cep.php" method="post">
-            <label for="">Digite o Nome:</label>
-            <input type="text" name="nome" id="nome">
-            <input type="submit" class="btn btn-primary" name="submit" value="Enviar">
-        </form>
-    </div>
 
     <div class="text-center">
         <form action="cep.php" method="get">
@@ -41,35 +46,44 @@
         </form>
     </div>
 
+    <form action="cep.php" method="post">
     <div>
         <div class="col">
             <label> NOME. </label>
-            <input type="text" class="form-control" id="nome" disabled value="<?= $nome ?>">
+            <input type="text" class="form-control" id="nome" name="nome"  value="<?= $nome ?>">
         </div>
     </div>
 
     <div class="row text-center">
         <div class="col">
             <label> CEP no formato 00000-000. </label>
-            <input type="text" class="form-control" id="cep" disabled value="<?= $cep ?>">
+            <input type="text" class="form-control" id="cep" name="cep"  value="<?= $cep ?>">
         </div>
             
         <div class="col">
             <label> LOGRADOURO. </label>
-            <input type="text" class="form-control" id="logradouro" disabled value="<?= $logradouro ?>">
+            <input type="text" class="form-control" id="logradouro" name="logradouro"  value="<?= $logradouro ?>">
         </div>
     </div>
 
     <div class="row text-center">
         <div class="col">
             <label> COMPLEMENTO. </label>
-            <input type="text" class="form-control" id="complemento" disabled value="<?= $complemento ?>">
+            <input type="text" class="form-control" id="complemento" name="complemento"  value="<?= $complemento ?>">
         </div>
             
         <div class="col">
             <label> BAIRRO. </label>
-            <input type="text" class="form-control" id="bairro" disabled value="<?= $bairro ?>">
+            <input type="text" class="form-control" id="bairro" name="bairro"  value="<?= $bairro ?>">
         </div>
     </div>
 
-<?= require_once "rodape.php";?>
+    <div>
+        <input type="submit" name="cadastrar" value="Cadastrar" class="btn btn-primary text-center">
+        <input type="submit" name="deletar" value="Deletar" class="btn btn-primary text-center">
+        <input type="submit" name="voltar" value="Voltar" class="btn btn-primary text-center">
+    </div>
+
+    </form>
+
+<?= require_once "rodape.php";}?>

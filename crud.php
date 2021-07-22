@@ -22,12 +22,9 @@
 
             $array = [] ;
 
-            foreach ($dados as $res=>$index) {
-                
+            foreach ($dados as $res=>$index) { 
                 $array[$res] = $index;
             }
-
-            var_dump($array);
 
             self::$cnpj = $array['cnpj'];
             self::$tipo = $array['tipo'];
@@ -49,46 +46,112 @@
 
         public static function insert($valores)
         {
-            echo "1";
             
             self::dadosCnpf($valores);
 
             require_once "conexao.php";
-
-            echo self::$cnpj;
 
             $query_insert = "INSERT INTO tb_cnpj VALUES (NULL, '".self::$cnpj."', '".self::$tipo."', '".self::$abertura."', 
             '".self::$nome."', '".self::$fantasia."', '".self::$uf."', '".self::$municipio."', '".self::$bairro."', '".self::$cep."', 
             '".self::$complemento."', '".self::$numero."', '".self::$logradouro."', '".self::$email."', '".self::$telefone."', 
             '".self::$capital_social."')";
 
-            echo $query_insert;
-
 
             $insert = $con->query($query_insert);
-            if($insert->num_rows){
-                echo "Inserir com sucesso!";
-            }else{
-                echo "<p class='alert alert-danger'>Erro ao Inserir!</p>";
-            }
 
             $con->close();
         }
 
-        public static function delete()
+        public static function delete($val)
         {
+            // self::dadosCnpf($val);
+
+            $cnpj = $val;
+
             require_once "conexao.php";
 
-            $select = "SELECT id FROM tb_cnpj WHERE cnpj = self::$cnpj";
+            $query1 = "SELECT id FROM tb_cnpj WHERE cnpj = '".$cnpj."'";
+            $select = $con->query($query1);
+            $id = "";
 
-            $query_delete = "DELETE FROM tb_cnpj where id = $select";
-
+            foreach ($select as $key) {
+                foreach ($key as $k) {
+                    $id = $k;
+                }
+            }
+            
+            $query_delete = "DELETE FROM tb_cnpj WHERE id = '".$id."'";
+            echo $query_delete;
             $delete = $con->query($query_delete);
 
             $con->close();
         }
     }
 
+    class CrudCep{
+        public static $nome;
+        public static $cep;
+        public static $logradouro;
+        public static $complemento;
+        public static $bairro;
+        
 
+        public static function dadosCep($dados)
+        {
 
+            $array = [] ;
+
+            foreach ($dados as $res=>$index) { 
+                $array[$res] = $index;
+            }
+
+            self::$cep = $array['cep'];
+            self::$nome = $array['nome'];
+            self::$logradouro = $array['logradouro'];
+            self::$complemento = $array['complemento'];
+            self::$bairro = $array['bairro'];
+
+        }
+
+        public static function insert($valores)
+        {
+            
+            self::dadosCep($valores);
+
+            require_once "conexao.php";
+
+            $query_insert = "INSERT INTO tb_cep VALUES (NULL, ".self::$cep.", '".self::$nome."', '".self::$logradouro."', 
+            '".self::$complemento."', '".self::$bairro."')";
+
+            $insert = $con->query($query_insert);
+
+            echo $query_insert;
+
+            $con->close();
+        }
+
+        public static function delete($val)
+        {
+            self::dadosCep($val);
+
+            require_once "conexao.php";
+
+            $query1 = "SELECT id FROM tb_cep WHERE cep = '".$val."'";
+            $select = $con->query($query1);
+
+            $id = "";
+
+            foreach ($select as $key) {
+                foreach ($key as $k) {
+                    $id = $k;
+                }
+            }
+
+            $query_delete = "DELETE FROM tb_cep where id = '".$id."'";
+
+            $delete = $con->query($query_delete);
+
+            $con->close();
+        }
+    }
 ?>
